@@ -4,6 +4,7 @@ import CommentList from './comment-list';
 import NewComment from './new-comment';
 import classes from './comments.module.css';
 import NotificationContext from '../../store/notification-context';
+import Loader from '../ui/loader';
 
 const Comments = ({ eventId }) => {
   const notificationCtx = useContext(NotificationContext);
@@ -56,7 +57,7 @@ const Comments = ({ eventId }) => {
       <button onClick={toggleCommentsHandler}>{showComments ? 'Hide' : 'Show'} Comments</button>
       {showComments && <NewComment onAddComment={addCommentHandler} />}
       {showComments && !isFetchingComments && <CommentList items={comments} />}
-      {showComments && isFetchingComments && <p>Loading...</p>}
+      {showComments && isFetchingComments && <Loader />}
     </section>
   );
 };

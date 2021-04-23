@@ -6,6 +6,7 @@ import EventList from '../../components/events/event-list';
 import ResultsTitle from '../../components/events/results-title';
 import Button from '../../components/ui/button';
 import ErrorAlert from '../../components/ui/error-alert';
+import Loader from '../../components/ui/loader';
 
 // We use client side data fetching instead of SSR, as no SEO needed for filtered events page
 const FilteredEventsPage = () => {
@@ -40,7 +41,7 @@ const FilteredEventsPage = () => {
     return (
       <>
         {pageHeadData}
-        <p className="center">Loading...</p>
+        <Loader />
       </>
     );
   }

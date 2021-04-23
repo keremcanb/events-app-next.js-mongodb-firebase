@@ -4,6 +4,7 @@ import EventSummary from '../../components/event-detail/event-summary';
 import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
 import Comments from '../../components/input/comments';
+import Loader from '../../components/ui/loader';
 
 const EventDetailPage = ({ selectedEvent, selectedEvent: { title, description, location, image, date, id } }) =>
   selectedEvent ? (
@@ -20,9 +21,7 @@ const EventDetailPage = ({ selectedEvent, selectedEvent: { title, description, l
       <Comments eventId={id} />
     </>
   ) : (
-    <div className="center">
-      <p>Loading...</p>
-    </div>
+    <Loader />
   );
 
 // Get single event
