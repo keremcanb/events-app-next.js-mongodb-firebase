@@ -1,7 +1,7 @@
-import axios from 'axios';
+import { get } from 'axios';
 
 export const getAllEvents = async () => {
-  const { data } = await axios('https://nextjs-ef11e-default-rtdb.europe-west1.firebasedatabase.app/events.json');
+  const { data } = await get('https://nextjs-ef11e-default-rtdb.europe-west1.firebasedatabase.app/events.json');
   const events = [];
   // Convert Firebase object to array
   for (const key in data) {

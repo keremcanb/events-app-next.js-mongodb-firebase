@@ -1,5 +1,5 @@
 import { useRef, useContext } from 'react';
-import axios from 'axios';
+import { post } from 'axios';
 import classes from './newsletter-registration.module.css';
 import NotificationContext from '../../store/notification-context';
 
@@ -15,10 +15,9 @@ const NewsletterRegistration = () => {
       message: 'Registering for newsletter.',
       status: 'pending'
     });
-    // Post via local API
     try {
       // email property from API
-      await axios.post('/api/newsletter', { email });
+      await post('/api/newsletter', { email });
       notificationCtx.showNotification({
         title: 'Success!',
         message: 'Successfully registered for newsletter!',

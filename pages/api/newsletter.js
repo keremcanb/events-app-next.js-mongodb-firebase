@@ -4,7 +4,6 @@ import { connectDatabase, insertDocument } from '../../helpers/db-util';
 const handler = async (req, res) => {
   // Only use post method
   if (req.method === 'POST') {
-    // Get email from newsletter-registration.js
     const userEmail = req.body.email;
     // Server side email validation
     if (!userEmail || !userEmail.includes('@')) {

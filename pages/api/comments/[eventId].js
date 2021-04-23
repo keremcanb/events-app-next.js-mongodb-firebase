@@ -1,7 +1,6 @@
 import { connectDatabase, insertDocument, getAllDocuments } from '../../../helpers/db-util';
 
 const handler = async (req, res) => {
-  // Get event ID
   const { eventId } = req.query;
   let client;
 
@@ -13,7 +12,6 @@ const handler = async (req, res) => {
   }
   // Post Comment
   if (req.method === 'POST') {
-    // Get comment info from form
     const { email, name, text } = req.body;
     // Server side validation
     if (!email.includes('@') || !name || name.trim() === '' || !text || text.trim() === '') {

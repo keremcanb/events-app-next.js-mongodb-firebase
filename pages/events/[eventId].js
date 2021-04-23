@@ -26,7 +26,6 @@ const EventDetailPage = ({ selectedEvent, selectedEvent: { title, description, l
 
 // Get single event
 export const getStaticProps = async (context) => {
-  // Get event id
   const { eventId } = context.params;
   const event = await getEventById(eventId);
 
