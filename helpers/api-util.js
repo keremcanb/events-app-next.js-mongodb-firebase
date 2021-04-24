@@ -5,14 +5,10 @@ export const getAllEvents = async () => {
   // Convert Firebase object to array
   const events = [];
   for (const key in data) {
-    events.push({
-      id: key,
-      ...data[key]
-    });
+    events.push({ id: key, ...data[key] });
   }
   return events;
 };
-
 // Filter featured events
 export const getFeaturedEvents = async () => {
   const allEvents = await getAllEvents();
@@ -24,8 +20,7 @@ export const getEventById = async (id) => {
   return allEvents.find((event) => event.id === id);
 };
 
-export const getFilteredEvents = async (dateFilter) => {
-  const { year, month } = dateFilter;
+export const getFilteredEvents = async ({ year, month }) => {
   const allEvents = await getAllEvents();
   const filteredEvents = allEvents.filter((event) => {
     const eventDate = new Date(event.date);

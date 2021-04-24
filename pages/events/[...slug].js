@@ -7,7 +7,6 @@ import ResultsTitle from '../../components/events/results-title';
 import Button from '../../components/ui/button';
 import ErrorAlert from '../../components/ui/error-alert';
 import Loader from '../../components/ui/loader';
-
 // We use client side data fetching instead of SSR, as no SEO needed for filtered events page
 const FilteredEventsPage = () => {
   const [loadedEvents, setLoadedEvents] = useState();
@@ -21,10 +20,7 @@ const FilteredEventsPage = () => {
     if (data) {
       const events = [];
       for (const key in data) {
-        events.push({
-          id: key,
-          ...data[key]
-        });
+        events.push({ id: key, ...data[key] });
       }
       setLoadedEvents(events);
     }
@@ -45,7 +41,6 @@ const FilteredEventsPage = () => {
       </>
     );
   }
-
   // Get year and month from array
   const filteredYear = filterData[0];
   const filteredMonth = filterData[1];
@@ -59,7 +54,6 @@ const FilteredEventsPage = () => {
       <meta name="description" content={`All events for ${numMonth}/${numYear}.`} />
     </Head>
   );
-
   // Wrong values entered in url check
   if (
     Number.isNaN(numYear) ||
@@ -87,7 +81,6 @@ const FilteredEventsPage = () => {
     const eventDate = new Date(event.date);
     return eventDate.getFullYear() === numYear && eventDate.getMonth() === numMonth - 1;
   });
-
   // Faulty or does not exist check
   if (!filteredEvents || filteredEvents.length === 0) {
     return (

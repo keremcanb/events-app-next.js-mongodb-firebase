@@ -10,15 +10,16 @@ export const connectDatabase = async () => {
   );
   return client;
 };
-
+// Add email
 export const insertDocument = async (client, collection, document) => {
   const db = client.db();
   const result = await db.collection(collection).insertOne(document);
   return result;
 };
-
+// Get comments
 export const getAllDocuments = async (client, collection, sort) => {
   const db = client.db();
+  // Get as array
   const documents = await db.collection(collection).find().sort(sort).toArray();
   return documents;
 };

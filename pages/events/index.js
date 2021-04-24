@@ -28,7 +28,6 @@ const AllEventsPage = ({ events }) => {
     </>
   );
 };
-
 // Get all events
 export const getStaticProps = async () => {
   const events = await getAllEvents();

@@ -12,7 +12,6 @@ const NewComment = ({ onAddComment }) => {
     const email = emailRef.current.value;
     const name = nameRef.current.value;
     const text = commentRef.current.value;
-
     if (
       !email ||
       email.trim() === '' ||
@@ -25,12 +24,7 @@ const NewComment = ({ onAddComment }) => {
       setIsInvalid(true);
       return;
     }
-
-    onAddComment({
-      email,
-      name,
-      text
-    });
+    onAddComment({ email, name, text });
   };
 
   return (

@@ -23,7 +23,6 @@ const EventDetailPage = ({ selectedEvent, selectedEvent: { title, description, l
   ) : (
     <Loader />
   );
-
 // Get single event
 export const getStaticProps = async (context) => {
   const { eventId } = context.params;
@@ -36,7 +35,6 @@ export const getStaticProps = async (context) => {
     revalidate: 86400
   };
 };
-
 // Which event ids to prerender
 export const getStaticPaths = async () => {
   const events = await getFeaturedEvents();
