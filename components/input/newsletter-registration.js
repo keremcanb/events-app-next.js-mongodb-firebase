@@ -10,12 +10,12 @@ const NewsletterRegistration = () => {
   const registrationHandler = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
-    notificationCtx.showNotification({
-      title: 'Signing up...',
-      message: 'Registering for newsletter.',
-      status: 'pending'
-    });
     try {
+      notificationCtx.showNotification({
+        title: 'Signing up...',
+        message: 'Registering for newsletter.',
+        status: 'pending'
+      });
       // email property from API
       await post('/api/newsletter', { email });
       notificationCtx.showNotification({

@@ -16,7 +16,7 @@ const FilteredEventsPage = () => {
   const filterData = router.query.slug;
   // Fetch all avents from Firebase
   const { data, error } = useSWR('https://nextjs-ef11e-default-rtdb.europe-west1.firebasedatabase.app/events.json');
-  // Transform events data to array
+  // Convert events data to array
   useEffect(() => {
     if (data) {
       const events = [];

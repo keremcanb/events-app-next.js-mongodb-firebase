@@ -2,8 +2,8 @@ import { get } from 'axios';
 
 export const getAllEvents = async () => {
   const { data } = await get('https://nextjs-ef11e-default-rtdb.europe-west1.firebasedatabase.app/events.json');
-  const events = [];
   // Convert Firebase object to array
+  const events = [];
   for (const key in data) {
     events.push({
       id: key,

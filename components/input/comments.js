@@ -30,12 +30,12 @@ const Comments = ({ eventId }) => {
   };
 
   const addCommentHandler = async (commentData) => {
-    notificationCtx.showNotification({
-      title: 'Sending comment...',
-      message: 'Your comment is currently being stored into a database.',
-      status: 'pending'
-    });
     try {
+      notificationCtx.showNotification({
+        title: 'Sending comment...',
+        message: 'Your comment is currently being stored into a database.',
+        status: 'pending'
+      });
       await post(`/api/comments/${eventId}`, commentData);
       notificationCtx.showNotification({
         title: 'Success!',
