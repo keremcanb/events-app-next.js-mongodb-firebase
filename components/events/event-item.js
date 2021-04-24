@@ -6,7 +6,7 @@ import AddressIcon from '../icons/address-icon';
 import ArrowRightIcon from '../icons/arrow-right-icon';
 import classes from './event-item.module.css';
 
-const EventItem = ({ title, image, date, location, id }) => (
+const EventItem = ({ id, title, image, date, location }) => (
   <li className={classes.item}>
     <Image src={`/${image}`} alt={title} width={250} height={160} />
     <div className={classes.content}>

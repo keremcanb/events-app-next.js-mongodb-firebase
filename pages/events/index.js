@@ -16,7 +16,7 @@ const AllEventsPage = ({ events }) => {
         <title>All Events</title>
         <meta name="description" content="Find a lot of great events that allow you to evolve" />
       </Head>
-      {/* Get selected year/month from form and trigger ...slug */}
+      {/* Get selected year/month from form, redirect to url and let ...slug catch url */}
       <EventsSearch
         onSearch={(year, month) => {
           router.push(`/events/${year}/${month}`);

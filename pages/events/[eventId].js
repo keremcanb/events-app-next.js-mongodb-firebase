@@ -14,7 +14,7 @@ const EventDetailPage = ({ selectedEvent, selectedEvent: { title, description, l
         <meta name="description" content={description} />
       </Head>
       <EventSummary title={title} />
-      <EventLogistics date={date} address={location} image={image} imageAlt={title} />
+      <EventLogistics date={date} address={location} image={image} alt={title} />
       <EventContent>
         <p>{description}</p>
       </EventContent>
