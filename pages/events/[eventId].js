@@ -27,7 +27,6 @@ const EventDetailPage = ({ selectedEvent, selectedEvent: { title, description, l
 export const getStaticProps = async (context) => {
   const { eventId } = context.params;
   const event = await getEventById(eventId);
-
   return {
     props: {
       selectedEvent: event
@@ -40,10 +39,9 @@ export const getStaticPaths = async () => {
   const events = await getFeaturedEvents();
   // Get all event ids
   const paths = events.map((event) => ({ params: { eventId: event.id } }));
-
   return {
     paths,
-    // Don't server anything until done generating page
+    // Don't serve anything until done generating page
     fallback: 'blocking'
   };
 };

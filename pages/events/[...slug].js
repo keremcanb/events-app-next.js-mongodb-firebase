@@ -11,8 +11,6 @@ import Loader from '../../components/ui/loader';
 const FilteredEventsPage = () => {
   const [loadedEvents, setLoadedEvents] = useState();
   const router = useRouter();
-  // Get year/month array from url
-  const filterData = router.query.slug;
   // Fetch all avents from Firebase
   const { data, error } = useSWR('https://nextjs-ef11e-default-rtdb.europe-west1.firebasedatabase.app/events.json');
   // Convert events data to array
@@ -41,9 +39,9 @@ const FilteredEventsPage = () => {
       </>
     );
   }
-  // Get year and month from array
-  const filteredYear = filterData[0];
-  const filteredMonth = filterData[1];
+  // Get year and month from url array
+  const filteredYear = router.query.slug[0];
+  const filteredMonth = router.query.slug[1];
   // Convert string to number
   const numYear = +filteredYear;
   const numMonth = +filteredMonth;

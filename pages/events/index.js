@@ -7,12 +7,6 @@ import EventsSearch from '../../components/events/events-search';
 const AllEventsPage = ({ events }) => {
   const router = useRouter();
 
-  const findEventsHandler = (year, month) => {
-    // To trigger [...slug].js
-    const fullPath = `/events/${year}/${month}`;
-    router.push(fullPath);
-  };
-
   return (
     <>
       <Head>
@@ -20,10 +14,14 @@ const AllEventsPage = ({ events }) => {
       </Head>
       <Head>
         <title>All Events</title>
-        <meta name="description" content="Find a lot of great events that allow you to evolve..." />
+        <meta name="description" content="Find a lot of great events that allow you to evolve" />
       </Head>
-      {/* Get selected year/month from for and trigger ...slug */}
-      <EventsSearch onSearch={findEventsHandler} />
+      {/* Get selected year/month from form and trigger ...slug */}
+      <EventsSearch
+        onSearch={(year, month) => {
+          router.push(`/events/${year}/${month}`);
+        }}
+      />
       <EventList items={events} />
     </>
   );
@@ -31,7 +29,6 @@ const AllEventsPage = ({ events }) => {
 // Get all events
 export const getStaticProps = async () => {
   const events = await getAllEvents();
-
   return {
     props: {
       events

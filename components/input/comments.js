@@ -25,10 +25,6 @@ const Comments = ({ eventId }) => {
     }
   }, [showComments, eventId]);
 
-  const toggleCommentsHandler = () => {
-    setShowComments((prevStatus) => !prevStatus);
-  };
-
   const addCommentHandler = async (commentData) => {
     try {
       notificationCtx.showNotification({
@@ -53,7 +49,9 @@ const Comments = ({ eventId }) => {
 
   return (
     <section className={classes.comments}>
-      <button onClick={toggleCommentsHandler}>{showComments ? 'Hide' : 'Show'} Comments</button>
+      <button onClick={() => setShowComments((prevStatus) => !prevStatus)}>
+        {showComments ? 'Hide' : 'Show'} Comments
+      </button>
       {showComments && <NewComment onAddComment={addCommentHandler} />}
       {showComments && !isFetchingComments && <CommentList items={comments} />}
       {showComments && isFetchingComments && <Loader />}

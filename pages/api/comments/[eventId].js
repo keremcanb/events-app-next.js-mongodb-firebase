@@ -20,12 +20,7 @@ const handler = async (req, res) => {
       return;
     }
 
-    const newComment = {
-      email,
-      name,
-      text,
-      eventId
-    };
+    const newComment = { email, name, text, eventId };
 
     let result;
 
