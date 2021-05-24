@@ -29,12 +29,7 @@ const AllEventsPage = ({ events }) => {
 // Get all events
 export const getStaticProps = async () => {
   const events = await getAllEvents();
-  return {
-    props: {
-      events
-    },
-    revalidate: 86400
-  };
+  return { props: { events }, revalidate: 86400 };
 };
 
 export default AllEventsPage;
